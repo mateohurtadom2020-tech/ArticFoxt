@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Pizzeria's</title>
+    <link rel="stylesheet" href="cafeteria.css">
+
+</head>
+
+<body>
+
+    <header class="header-pizzeria">
+        <div class="nav-pizzeria">
+            <div class="logo-pizzeria">Michael <span>Pizzeria's</span></div>
+            <nav>
+                <ul class="menu-links">
+                    <li><a href="#menu">Menú</a></li>
+                    <li><a href="#promos">Promociones</a></li>
+                    <li><a href="index.html" class="btn-volver">← Volver </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div
+        style="background: rgba(0, 0, 0, 0.3); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+        <div style="max-width: 800px; padding: 20px;">
+            <h1
+                style="font-size: 5rem; color: #ffffff; margin-bottom: 5px; font-weight: 900; text-transform: uppercase; line-height: 0.9; text-shadow: 4px 4px 0px #d32f2f;">
+                ¡EL MEJOR <br><span style="color: #ff8f00;">SABOR!</span>
+            </h1>
+
+            <p
+                style="font-size: 1.4rem; color: #ffffff; background: #d32f2f; display: inline-block; padding: 5px 20px; transform: rotate(-2deg); font-weight: bold; margin-bottom: 30px; box-shadow: 5px 5px 0px #3e2723;">
+                Pizzas artesanales hechas al momento.
+            </p>
+
+            <br>
+
+            <a href="#menu"
+                style="background: #ff8f00; color: #3e2723; padding: 20px 40px; font-size: 1.5rem; font-weight: 900; text-decoration: none; border-radius: 50px; border: 4px solid #ffffff; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: 0.3s; display: inline-block;">
+                ¡ORDENA YA! 🍕
+            </a>
+        </div>
+    </div>  
+
+    <section id="menu" style="padding: 80px 20px; background-color: #f5f5dc;"> <div style="max-width: 1100px; margin: 0 auto;">
+        
+        <h2 style="text-align: center; font-size: 3rem; color: #d32f2f; margin-bottom: 50px; text-transform: uppercase; font-weight: 900;">
+            Nuestras <span style="color: #3e2723;">Especialidades</span>
+        </h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            
+            <div class="pizza-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid #ddd;">
+                <div style="background: url('assets/Pizza-peperoni.jpg') center/cover; height: 220px;"></div>
+                <div style="padding: 20px; text-align: center;">
+                    <h3 style="color: #d32f2f; font-size: 1.5rem; margin-bottom: 10px;">Pepperoni Suprema</h3>
+                    <p style="color: #555; font-size: 0.95rem; margin-bottom: 15px;">Doble queso mozzarella, salsa de la casa y pepperoni crujiente.</p>
+                    <span style="display: block; font-size: 1.8rem; font-weight: 900; color: #3e2723; margin-bottom: 15px;">$8.99</span>
+                    <a href="https://wa.me/50375838279" style="background: #ff8f00; color: white; padding: 10px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block;">Ordenar</a>
+                </div>
+            </div>
+
+            <div class="pizza-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid #ddd;">
+                <div style="background: url('assets/Pizza-Hawaiian.jpg') center/cover; height: 220px;"></div>
+                <div style="padding: 20px; text-align: center;">
+                    <h3 style="color: #d32f2f; font-size: 1.5rem; margin-bottom: 10px;">Hawaiana Tropical</h3>
+                    <p style="color: #555; font-size: 0.95rem; margin-bottom: 15px;">Jamón seleccionado, piña dulce y un toque de tocino ahumado.</p>
+                    <span style="display: block; font-size: 1.8rem; font-weight: 900; color: #3e2723; margin-bottom: 15px;">$9.50</span>
+                    <a href="https://wa.me/50375838279" style="background: #ff8f00; color: white; padding: 10px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block;">Ordenar</a>
+                </div>
+            </div>
+
+            <div class="pizza-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid #ddd;">
+                <div style="background: url('assets/Pizza-de-aceitunas.jpg') center/cover; height: 220px;"></div>
+                <div style="padding: 20px; text-align: center;">
+                    <h3 style="color: #d32f2f; font-size: 1.5rem; margin-bottom: 10px;">Aceituna Black</h3>
+                    <p style="color: #555; font-size: 0.95rem; margin-bottom: 15px;">Aceitunas negras frescas, pimientos y orégano italiano.</p>
+                    <span style="display: block; font-size: 1.8rem; font-weight: 900; color: #3e2723; margin-bottom: 15px;">$8.50</span>
+                    <a href="https://wa.me/50375838279" style="background: #ff8f00; color: white; padding: 10px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block;">Ordenar</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</body>
+
+</html>
