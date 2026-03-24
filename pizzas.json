@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nombre": "Pepperoni Suprema",
+    "precio": 8.99,
+    "descripcion": "Doble pepperoni y mucho queso mozzarella"
+  },
+  {
+    "id": 2,
+    "nombre": "Black Aceitunas",
+    "precio": 10.75,
+    "descripcion": "Aceitunas negras seleccionadas con el toque de la casa."
+  },
+  {
+    "id": 3,
+    "nombre": "Pepperoni de Mitad",
+    "precio": 9.37,
+    "descripcion": "La favorita de Michael"
+  }
+]

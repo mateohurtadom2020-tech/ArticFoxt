@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | ArticFoxt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Inter:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="cafeteria.css">
+
+    <style>
+        /* --- DEFINICIÓN DE LA PALETA EQUIPO C --- */
+        :root {
+            --dark-blue: #2d3f70;
+            /* Azul profundo (Títulos y Botones) */
+            --accent-red: #a6221d;
+            /* Rojo (Acentos y alertas) */
+            --light-gray: #c8d0e3;
+            /* Gris azulado (Bordes o fondos suaves) */
+            --soft-purple: #7f88d2;
+            /* Morado suave (Efectos hover) */
+            --bg-ice: #e4e9ec;
+            /* Fondo principal (Limpieza total) */
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        body {
+            background-color: var(--bg-ice);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            color: var(--dark-blue);
+        }
+
+        /* --- DECORADORES "REGADOS" (Como en who.html para mantener estilo) --- */
+        .decor {
+            position: absolute;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.15;
+        }
+
+        /* La estrella la ponemos en el rojo de la paleta para que destaque */
+        .star-contact {
+            top: 10%;
+            right: 5%;
+            width: 80px;
+            filter: hue-rotate(340deg);
+        }
+
+        .slime-contact {
+            bottom: -5%;
+            left: -5%;
+            width: 300px;
+            opacity: 0.1;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .main-contact {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-card {
+            background: white;
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            /* Dos columnas: Info y Formulario */
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(45, 63, 112, 0.15);
+        }
+
+        /* --- COLUMNA IZQUIERDA: INFO --- */
+        .info-panel {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .info-panel h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            line-height: 1;
+            margin: 0;
+        }
+
+        .info-panel h2 span {
+            color: var(--soft-purple);
+            /* Usamos el morado suave para el resalte */
+        }
+
+        .direct-link {
+            text-decoration: none;
+            color: var(--light-gray);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .direct-link:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* --- COLUMNA DERECHA: FORMULARIO --- */
+        .form-panel {
+            padding: 60px 40px;
+            background: white;
+        }
+
+        /* Trasladamos la lógica de tu index.html pero con el estilo Equipo C */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-weight: 800;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--soft-purple);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 15px;
+            border: 2px solid var(--bg-ice);
+            border-radius: 12px;
+            background-color: var(--bg-ice);
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+
+        /* Efecto al hacer click en los campos */
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--soft-purple);
+            background-color: white;
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: none;
+        }
+
+        /* Botón de envío con el rojo del Equipo C */
+        .btn-send {
+            background-color: var(--accent-red);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .btn-send:hover {
+            background-color: var(--dark-blue);
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(166, 34, 29, 0.2);
+        }
+
+        /* --- RESPONSIVE (Celulares) --- */
+        @media (max-width: 768px) {
+            .contact-card {
+                grid-template-columns: 1fr;
+            }
+
+            .info-panel {
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="assets/Star.png" class="decor star-contact" alt="">
+    <img src="assets/Slime-splatter.png" class="decor slime-contact" alt="">
+
+    <main class="main-contact">
+        <div class="contact-card">
+
+            <div class="info-panel">
+                <div>
+                    <span style="letter-spacing: 3px; font-weight: 800; opacity: 0.5;">CONTACTO</span>
+                    <h2>DALE <br><span>VIDA</span> A TU <br>PROYECTO</h2>
+                </div>
+
+                <div class="footer-info">
+                    <p style="font-size: 0.9rem; opacity: 0.7;">¿Prefieres hablar directamente?</p>
+                    <a href="https://wa.me/50375838279" class="direct-link">
+                        WHATSAPP BUSINESS →
+                    </a>
+                </div>
+            </div>
+
+            <div class="form-panel">
+                <form action="https://formspree.io/f/mqeyalon" method="POST" class="contact-form">
+
+                    <div class="input-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" name="name" placeholder="Ej. Rodrigo Pineda" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Correo Electrónico</label>
+                        <input type="email" name="_replyto" placeholder="tu@email.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Mensaje</label>
+                        <textarea name="message" placeholder="¿Qué tienes en mente para ArticFoxt?" required></textarea>
+                    </div>
+
+                    <input type="hidden" name="_subject" value="Nuevo mensaje desde Contacto ArticFoxt">
+
+                    <button type="submit" class="btn-send">ENVIAR SOLICITUD</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+<footer style="margin-top: 80px; padding: 40px 10%; background: #e4e9ec; border-top: 1px solid #c8d0e3;">
+    <div style="max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+        
+        <div style="font-size: 0.8rem; color: #2d3f70;">
+            <p style="margin: 0; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">🕒 Gestión de Tiempos</p>
+            <p style="margin: 5px 0; opacity: 0.8;">Ciclos de 1-2 semanas sujetos a carga académica y complejidad del sistema.</p>
+        </div>
+
+        <div style="font-size: 0.8rem; color: #2d3f70;">
+            <p style="margin: 0; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">🖼️ Contenido Visual</p>
+            <p style="margin: 5px 0; opacity: 0.8;">Recursos de terceros para uso demostrativo. <span style="color: #a6221d; font-weight: 600;">El cliente debe proporcionar sus propios logos finales.</span></p>
+        </div>
+
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 20px;">
+        <p style="font-size: 0.7rem; color: #7f88d2; font-weight: 800; letter-spacing: 2px;">ARTICFOXT © 2026 | EL SALVADOR</p>
+    </div>
+</footer>
+
+</body>
+
+</html>
