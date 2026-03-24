@@ -64,7 +64,9 @@
                         <p style="color: #555; font-size: 0.95rem; margin-bottom: 15px;">Doble queso mozzarella, salsa
                             de la casa y pepperoni crujiente.</p>
                         <span
-                            style="display: block; font-size: 1.8rem; font-weight: 900; color: #3e2723; margin-bottom: 15px;">$8.99</span>
+                            style="display: block; font-size: 1.8rem; font-weight: 900; color: #3e2723; margin-bottom: 15px;">
+                            <p class="precio-pizzeria">Desde <span id="precio-suprema">$0.00</span></p>
+                        </span>
                         <a href="https://wa.me/50375838279"
                             style="background: #ff8f00; color: white; padding: 10px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block;">Ordenar</a>
                     </div>
@@ -77,10 +79,14 @@
                         <h3 style="color: #d32f2f; font-size: 1.5rem; margin-bottom: 10px;">Pepperoni con mitad</h3>
                         <p style="color: #555; font-size: 0.95rem; margin-bottom: 15px;">Mitad pepperoni, mitad
                             pimientos con aceitunas, ¡Totalmente irresistible!.</p>
-                        <span
-                            style="display: block; font-size: 1.8rem; font-weight: 900; color: #3e2723; margin-bottom: 15px;">$9.50</span>
+
+                        <span id="precio-mitades"
+                            style="display: block; font-size: 1.8rem; font-weight: 900; color: #3e2723;">
+                            <p class="precio-pizzeria">Desde <span id="precio-mitades">$0.00</span></p>
+                        </span>
                         <a href="https://wa.me/50375838279"
-                            style="background: #ff8f00; color: white; padding: 10px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block;">Ordenar</a>
+                            style="background: #ff8f00; color: white; padding: 10px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; margin-top: 
+                            20px;">Ordenar</a>
                     </div>
                 </div>
 
@@ -92,7 +98,9 @@
                         <p style="color: #555; font-size: 0.95rem; margin-bottom: 15px;">Aceitunas negras frescas,
                             pimientos y orégano italiano.</p>
                         <span
-                            style="display: block; font-size: 1.8rem; font-weight: 900; color: #3e2723; margin-bottom: 15px;">$8.50</span>
+                            style="display: block; font-size: 1.8rem; font-weight: 900; margin-bottom: 15px;">
+                            <p class="precio-pizzeria">Desde <span id="precio-especial">$0.00</span></p>
+                        </span>
                         <a href="https://wa.me/50375838279"
                             style="background: #ff8f00; color: white; padding: 10px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block;">Ordenar</a>
                     </div>
@@ -101,21 +109,54 @@
             </div>
         </div>
 
-        <section id="promos" style="padding: 60px 20px; background-color: #3e2723; color: white; margin-top: 100px; border-radius: 30px; overflow: hidden; margin: 20px;">
-            <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
-                <div style="background: url('assets/doble-pizza.jpg') center/cover; height: 250px; border-radius: 15px; margin-bottom: 20px;"></div>
-                <h2 style="font-size: 2.5rem; color: #ff8f00; margin-bottom: 30px;">COMBOS FAMILIARES</h2>
-                <div
-                    style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 20px; border: 2px dashed #ff8f00;">
-                    <h3>Combo Ártico 🦊</h3>
-                    <p>2 Pizzas Grandes + Soda 1.5L + Palitroques</p>
-                    <span style="font-size: 2rem; font-weight: 900; color: #ff8f00;">$19.99</span>
-                </div>
+        <section id="promos">
+            <div style="width: 100%; max-width: 1000px; margin: 0 auto; margin-top: 100px;">
+                <img src="assets/Combo-pizzas.jpg" alt="Combo Ártico"
+                    style="width: 100%; height: auto; display: block;">
+            </div>
+            <h2 style="font-size: 2.5rem; color: #ff8f00; margin-bottom: 30px;">COMBOS FAMILIARES</h2>
+            <div
+                style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 20px; border: 2px dashed #ff8f00;">
+                <h3>Combo Ártico 🦊</h3>
+                <p>2 Pizzas Grandes</p>
+                <span style="font-size: 2rem; font-weight: 900; color: #ff8f00;">$17.50</span>
+            </div>
             </div>
         </section>
 
     </section>
 
+    <script>
+        async function actualizarPrecios() {
+            console.log("Cargando precios...");
+            try {
+                const res = await fetch('http://localhost:3000/api/pizzas');
+                const data = await res.json();
+                const pizzas = data.pizzas;
+
+                const mapeo = {
+                    'precio-suprema': 'Pepperoni Suprema',
+                    'precio-especial': 'Black Aceitunas',
+                    'precio-mitades': 'Pepperoni de Mitad',
+                };
+
+                for (const [id, nombre] of Object.entries(mapeo)) {
+                    const pizza = pizzas.find(p => p.nombre === nombre);
+                    const elemento = document.getElementById(id);
+                    if (pizza && elemento) {
+                        elemento.innerText = `$${pizza.precio.toFixed(2)}`;
+                        console.log(`✅ ${nombre} actualizado a $${pizza.precio}`);
+                    } else {
+                        console.error(`❌ No se pudo actualizar ${nombre}. ¿Existe el ID ${id}?`);
+                    }
+                }
+            } catch (e) {
+                console.error("Servidor apagado o error de red", e);
+            }
+        }
+
+        window.onload = actualizarPrecios;
+    </script>
 </body>
 
 </html>
