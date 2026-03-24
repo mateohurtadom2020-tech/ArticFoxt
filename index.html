@@ -1,17 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArticFoxt</title>
 
-    <link rel="icon" type="image/png" href="assets/fox.png">
+    <link rel="icon" type="image/png" href="assets/fox-artic.png">
 
     <link rel="stylesheet" href="cafeteria.css">
+
+    <style>
+        /* --- RESPONSIVE DESIGN: MÓVIL (Menos de 768px) --- */
+        @media (max-width: 768px) {
+
+            /* 1-2. Ajuste del Hero: Cambiamos el orden de los elementos */
+            .hero-business .hero-grid {
+                display: flex;
+                /* Usamos Flexbox para controlar el orden */
+                flex-direction: column;
+                /* Apilamos los elementos verticalmente */
+                text-align: center;
+                /* Centramos el texto para mejor lectura */
+                gap: 40px;
+                /* Damos un espacio elegante entre el texto y la imagen */
+            }
+
+            /* 1. Ajuste del Hero: Centramos todo para que sea más fácil de leer */
+            .hero-business .container {
+                padding-top: 100px;
+                /* Espacio para que el botón de menú no tape el título */
+                text-align: center;
+            }
+
+            .hero-business h1 {
+                font-size: 2.5rem;
+                /* Reducimos el tamaño para que no se salga de la pantalla */
+                line-height: 1.1;
+            }
+
+            .hero-business p {
+                font-size: 1rem;
+                margin: 20px auto;
+            }
+
+            /* 2. Navegación: Aseguramos que el Sidebar ocupe casi toda la pantalla */
+            .sidebar {
+                width: 85%;
+                /* En móvil el menú es el protagonista */
+            }
+
+            /* 3. Sección de Packs (Precios): De 3 columnas a 1 sola */
+            .packs-grid {
+                grid-template-columns: 1fr;
+                /* Una sola columna */
+                gap: 30px;
+                padding: 0 10px;
+            }
+
+            .pack-card {
+                padding: 30px 20px;
+                /* Ajustamos espacio interno */
+            }
+
+            .pack-card h3 {
+                font-size: 1.5rem;
+            }
+
+            /* 4. Footer: Apilamos los textos */
+            .footer-artic .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .hero-image img {
+                width: 100%;
+                height: auto;
+                /* Mantenemos la proporción */
+                border-radius: 20px;
+                /* Le damos el toque redondeado pro */
+            }
+
+            .cta-group {
+                text-align: center;
+            }
+
+            .btn-center {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
+
+        /* --- AJUSTES PARA CELULARES MUY PEQUEÑOS (Menos de 480px) --- */
+        @media (max-width: 480px) {
+            .hero-business h1 {
+                font-size: 2rem;
+                /* Todavía más pequeño para evitar cortes */
+            }
+
+            .btn-pack {
+                width: 100%;
+                /* Botones de pantalla completa para que sean fáciles de tocar */
+                text-align: center;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
+
+    <button class="menu-btn" id="open-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-menu">&times;</button>
+        <div class="sidebar-logo">Artic<span>Foxt</span></div>
+        <ul class="sidebar-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="who.html">¿Quién soy?</a></li>
+            <li><a href="presentacion.html">Habilidades</a></li>
+            <li><a href="pizzeria.html">Demo Pizzería</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
 
     <main class="landing-artic">
         <section class="hero-business">
@@ -26,8 +145,8 @@
                         <p>Diseñamos sitios web que no solo se ven bien, sino que venden. Posiciona tu marca hoy mismo
                             con ArticFoxt.</p>
                         <div class="cta-group">
-                            <a href="https://wa.me/50375838279" class="btn-primary">Empezar mi proyecto</a>
-                            <span class="trust-badge">Precio de lanzamiento: $15 USD (Solo 3 cupos)</span>
+                            <a href="https://wa.me/50375838279" class="btn-primary btn-center">Empezar mi proyecto</a>
+                            <span class="trust-badge">Precio de lanzamiento: $50 USD (Solo 3 cupos)</span>
                         </div>
                     </div>
                     <div class="hero-image">
@@ -69,45 +188,56 @@
                 </div>
                 <h3 style="margin-top: 20px;">Michael Pizzeria's</h3>
                 <p>Menú digital interactivo con pedidos directos a WhatsApp.</p>
-                <a href="pizzeria.html" class="btn-primary" style="padding: 12px 25px; font-size: 0.9rem; border-radius: 10px;">
+                <a href="pizzeria.html" class="btn-primary"
+                    style="padding: 12px 25px; font-size: 0.9rem; border-radius: 10px;">
                     Ver Demo
                 </a>
-            </div>
-
-            <div class="feature-card"
-                style="flex: 1; min-width: 300px; max-width: 400px; border: 1px solid #ddd; background: #fff; padding: 20px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
-                <div
-                    style="background: url('assets/taller-chico.jpg') center/cover; height: 180px; border-radius: 15px;">
-                </div>
-                <h3 style="margin-top: 20px;">Taller Mecánico</h3>
-                <p>Página de aterrizaje para servicios automotrices rápidos.</p>
-                <a href="taller.html" class="btn-primary" style="padding: 12px 25px; font-size: 0.9rem; border-radius: 10px;">Ver
-                    Demo</a>
             </div>
 
         </div>
     </section>
 
-    <section class="contacto-seccion">
+    <section class="servicios-packs">
         <div class="container">
-            <div class="contacto-wrapper">
-                <h2>¿Listo para empezar tu <span>proyecto</span>?</h2>
-                <p>Dejanos tus datos y te contactaremos para darte una cotización personalizada.</p>
+            <h2 class="section-title">Nuestros <span>Packs de Élite</span></h2>
 
-                <form action="https://formspree.io/f/mqeyalon" method="POST" class="formulario-artic">
-                    <div class="input-group">
-                        <input type="text" name="nombre" placeholder="Tu Nombre" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
-                    </div>
-                    <div class="input-group">
-                        <textarea name="mensaje"
-                            placeholder="Contanos qué tipo de página necesitás (ej. para un restaurante, taller, etc.)"
-                            required></textarea>
-                    </div>
-                    <button type="submit" class="btn-enviar">Enviar Solicitud</button>
-                </form>
+            <div class="packs-grid">
+                <div class="pack-card">
+                    <h3>Pack Inicio</h3>
+                    <p class="precio">Desde <span>$50</span></p>
+                    <ul>
+                        <li>Landing Page Única</li>
+                        <li>Diseño Adaptable (Móvil/PC)</li>
+                        <li>Formulario de Contacto</li>
+                        <li>Optimización de Velocidad</li>
+                    </ul>
+                    <a href="https://wa.me/50375838279" class="btn-pack">Lo quiero</a>
+                </div>
+
+                <div class="pack-card destacado">
+                    <div class="badge">Recomendado</div>
+                    <h3>Pack Negocio Pro</h3>
+                    <p class="precio">Desde <span>$120</span></p>
+                    <ul>
+                        <li>Hasta 3 Secciones</li>
+                        <li>Catálogo de Productos</li>
+                        <li>Base de Datos (SQLite)</li>
+                        <li>Panel de Administración</li>
+                    </ul>
+                    <a href="https://wa.me/50375838279" class="btn-pack">Elegir Pro</a>
+                </div>
+
+                <div class="pack-card">
+                    <h3>Pack Premium</h3>
+                    <p class="precio">Cotizar</p>
+                    <ul>
+                        <li>Tienda Online Completa</li>
+                        <li>Pasarela de Pagos</li>
+                        <li>Soporte 24/7</li>
+                        <li>SEO Avanzado</li>
+                    </ul>
+                    <a href="https://wa.me/50375838279" class="btn-pack">Consultar</a>
+                </div>
             </div>
         </div>
     </section>
@@ -118,6 +248,32 @@
             <p>Hecho con Visual Studio Code | En camino del exito.</p>
         </div>
     </footer>
+
+
+    <script>
+
+        const openBtn = document.getElementById('open-menu');
+        const closeBtn = document.getElementById('close-menu');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        openBtn.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        function cerrarMenu() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        closeBtn.addEventListener('click', cerrarMenu);
+        overlay.addEventListener('click', cerrarMenu);
+
+        // El secreto de ArticFoxt
+        console.log("%c Inspiración del Proyecto: ", "color: white; background: #2d3f70; font-weight: bold; padding: 5px; border-radius: 5px;");
+        console.log("Esta web existe gracias a la motivación de mi niña querida, Sofía. S.C. ❤️");
+    </script>
 
 </body>
 
