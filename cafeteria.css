@@ -1,8 +1,16 @@
 :root {
-    --primary: #00d4ff; /* Azul Ártico */
-    --dark: #0a0f18;    /* Negro Profundo */
-    --gray: #f4f7f9;
-    --text: #333;
+    /* Tu nueva paleta elegante */
+    --artic-blue: #abcbe8;    /* Azul claro de tu opción 2 */
+    --accent-gold: #e8c997;  /* Dorado suave */
+    --gray-medium: #6d6d70;  /* Gris de tu opción 1 */
+    --ivory: #e1e0d8;        /* El blanco hueso de tu opción 1 */
+    --dark-pro: #373a3f;     /* Gris casi negro de tu opción 1 */
+    
+    /* Variables de sistema */
+    --primary: var(--artic-blue);
+    --dark: var(--dark-pro);
+    --text-color: var(--dark-pro);
+    --bg-light: var(--ivory);
 }
 
 body {
@@ -10,6 +18,8 @@ body {
     font-family: 'Inter', sans-serif;
     color: var(--text);
     background-color: white;
+    /* AGREGA ESTA LÍNEA CLAVE: */
+    overflow-x: hidden;
 }
 
 .container {
@@ -42,9 +52,15 @@ body {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    /* Esto divide la pantalla en dos: 1.2 partes para el texto y 1 para la imagen */
+    grid-template-columns: 1.2fr 1fr; 
     gap: 40px;
-    align-items: center;
+    
+    /* 🔥 ESTA ES LA CLAVE PARA QUE NO ESTÉ ARRIBA 🔥 */
+    align-items: center; 
+    
+    /* Esto le da espacio arriba y abajo para que no pegue con el techo */
+    padding: 80px 0; 
 }
 
 h1 {
@@ -291,3 +307,621 @@ p {
     border-radius: 5px;
     white-space: nowrap;
 }
+
+.pizza-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pizza-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(211, 47, 47, 0.2);
+    border-color: #ff8f00;
+}
+
+.precio-mitades {
+    display: inline-block; /* Evita que salte de línea */
+    margin-top: 10px !important;      /* Espacio controlado arriba */
+    font-weight: 900;
+    color: #ff8f00;        /* El naranja que tenés */
+}
+
+/* === SECCION DE SERVICIOS === */
+
+.servicios-packs {
+    padding: 80px 0;
+    background-color: var(--gray);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--dark);
+}
+
+.section-title span { color: var(--primary); }
+
+.packs-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Para que en celular se pongan uno abajo de otro */
+}
+
+.pack-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border: 1px solid #eee;
+}
+
+/* Efecto al pasar el mouse (Lo que te decía para que se sienta pro) */
+.pack-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+}
+
+.pack-card.destacado {
+    border: 2px solid var(--primary);
+    transform: scale(1.05); /* Un poquito más grande */
+}
+
+.pack-card.destacado:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.pack-card h3 { margin-bottom: 15px; }
+
+.precio {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.precio span {
+    font-size: 2.5rem;
+    color: var(--dark);
+}
+
+.pack-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.pack-card ul li {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.pack-card ul li::before {
+    content: "✓";
+    color: var(--primary);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.btn-pack {
+    display: block;
+    background: var(--dark);
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-pack:hover {
+    background: var(--primary);
+}
+
+/* === ACA VA EL BOTON DEL MENU === */
+
+/* EL BOTÓN FLOTANTE (Abajo a la izquierda) */
+.menu-btn {
+    position: fixed;
+    bottom: 30px; 
+    left: 30px;   
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    background: var(--dark);
+    border: 2px solid var(--primary);
+    border-radius: 50%; /* Redondo como un botón de acción */
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* Espacio entre las 3 rayitas */
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+/* LAS 3 RAYITAS (Ahora sí con cuerpo) */
+.menu-btn span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 5px;
+}
+
+/* LA SIDEBAR (Sale desde la IZQUIERDA) */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -320px; /* Escondida a la izquierda */
+    width: 300px;
+    height: 100vh;
+    background: var(--dark);
+    z-index: 10000;
+    padding: 60px 30px;
+    transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+    visibility: hidden; 
+    opacity: 0;
+}
+
+.sidebar.active {
+    left: 0;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Links del menú */
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 50px;
+}
+
+.sidebar-links li { margin: 25px 0; }
+
+.sidebar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.sidebar-links a:hover { color: var(--primary); }
+
+/* Capa oscura de fondo */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 1500;
+}
+
+.overlay.active { display: block; }
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.quien-somos {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.intro-box h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.badge {
+    background: var(--primary);
+    color: var(--dark);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.valor-item {
+    background: #fff;
+    padding: 40px;
+    border-radius: 25px;
+    border: 1px solid #eee;
+    transition: 0.3s;
+}
+
+.valor-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,212,255,0.1);
+}
+
+.valor-item .icon { font-size: 2.5rem; margin-bottom: 20px; }
+
+/* === DEMOSTRACION DE css === */
+
+.habilidades-dbz {
+    background: radial-gradient(circle, #0a0f18 0%, #000000 100%);
+    padding: 80px 0;
+    color: #fff;
+    overflow: hidden;
+}
+
+.skill-box {
+    background: rgba(0, 212, 255, 0.05);
+    border: 2px solid var(--primary);
+    margin-bottom: 30px;
+    padding: 25px;
+    position: relative;
+    border-radius: 5px;
+    clip-path: polygon(0% 0%, 95% 0%, 100% 20%, 100% 100%, 5% 100%, 0% 80%);
+}
+
+.power-bar {
+    background: #1a1a1a;
+    height: 15px;
+    margin: 15px 0;
+    border: 1px solid var(--primary);
+    overflow: hidden;
+}
+
+.power-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00d4ff, #fff);
+    box-shadow: 0 0 15px var(--primary);
+    transition: width 2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.btn-dbz {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 15px 30px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+    display: block;
+    margin: 40px auto;
+}
+
+.btn-dbz:hover {
+    background: var(--primary);
+    color: var(--dark);
+    box-shadow: 0 0 30px var(--primary);
+}
+
+/* Efecto de parpadeo estilo radar */
+@keyframes scouter-blink {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+/* La animación del terremoto */
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* Clase que aplicaremos con JS */
+.shake-active {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+
+/* === EFECTO GOKU SAIYAJIN === */
+
+/* Contenedor general */
+.goku-container {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gray); /* O el fondo que prefieras */
+}
+
+/* El recuadro que reacciona (Como la imagen que me mostraste) */
+.goku-wrapper {
+    position: relative;
+    width: 300px; /* Ajusta el tamaño que quieras */
+    height: 350px;
+    background-color: #f7931e; /* Color naranja DBZ */
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* La imagen de Goku abajo */
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s ease; /* Transición suave de la sombra */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra base */
+}
+
+/* --- EL AURA ROJA (Hover) --- */
+.goku-wrapper:hover {
+    /* Aquí definimos el aura de Ki Roja */
+    box-shadow: 0 0 30px 10px rgba(255, 162, 0, 0.8), /* Brillo fuerte rojo */
+                0 0 60px 20px rgba(255, 69, 0, 0.5); /* Resplandor más suave naranja/rojo */
+    transform: translateY(-5px); /* Pequeño levante */
+}
+
+/* La imagen de Goku */
+.goku-img {
+    max-width: 80%;
+    height: auto;
+    transition: 0.3s ease;
+}
+
+/* --- EL GLOBO DE TEXTO (Speech Bubble) --- */
+.goku-speech {
+    position: absolute;
+    top: -40px; /* Lo sube por encima del recuadro */
+    right: -20px; /* Lo empuja a la derecha sobresaliendo */
+    background: #fff;
+    color: var(--dark);
+    padding: 15px 20px;
+    border-radius: 15px 15px 15px 0; /* Forma de globo */
+    font-weight: 800;
+    font-size: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    opacity: 0; /* Empieza invisible */
+    transform: scale(0.5) translateY(20px); /* Pequeño y abajo */
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto pop-up */
+    pointer-events: none; /* Para que no moleste al pasar el mouse */
+}
+
+/* El triangulito del globo de texto */
+.goku-speech::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 10px;
+    border-width: 10px 10px 0 0;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+}
+
+/* --- MOSTRAR EL GLOBO AL PASAR EL MOUSE --- */
+.goku-wrapper:hover .goku-speech {
+    opacity: 1; /* Se vuelve visible */
+    transform: scale(1) translateY(0); /* Vuelve a su tamaño y posición */
+    animation: bubblePop 0.4s ease forwards;
+}
+
+/* Animación extra de "salto" al aparecer */
+@keyframes bubblePop {
+    0% { transform: scale(0.5) translateY(20px); }
+    70% { transform: scale(1.1) translateY(-5px); }
+    100% { transform: scale(1) translateY(0); }
+}
+
+/* === ESTILOS DEL BOTÓN SENZU BEAN === */
+
+.recuperacion-energia {
+    padding: 60px 0;
+    text-align: center;
+    background-color: var(--dark); /* Fondo oscuro para que resalte */
+    border-top: 2px solid var(--primary); /* Línea de división ártica */
+    color: white;
+}
+
+.recuperacion-energia h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.recuperacion-energia p {
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+/* El botón en sí */
+.senzu-button {
+    background: transparent;
+    border: 3px solid #66bb6a; /* Un verde vibrante como la semilla */
+    color: white;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre imagen y texto */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto pop */
+    box-shadow: 0 5px 15px rgba(102, 187, 106, 0.2);
+    outline: none;
+}
+
+/* El icono de la semilla */
+.senzu-icon {
+    width: 35px;
+    height: auto;
+    filter: drop-shadow(0 0 5px rgba(102, 187, 106, 0.5));
+}
+
+/* --- EFECTOS INTERACTIVOS (Hover) --- */
+
+.senzu-button:hover {
+    background-color: rgba(102, 187, 106, 0.1);
+    box-shadow: 0 8px 25px rgba(102, 187, 106, 0.5); /* Brillo verde intenso */
+    transform: translateY(-5px) scale(1.03); /* Se levanta y agranda un poco */
+    border-color: #81c784; /* Verde más claro al pasar el mouse */
+}
+
+.senzu-button:active {
+    transform: translateY(1px) scale(0.98); /* Efecto de presionado */
+    box-shadow: 0 2px 10px rgba(102, 187, 106, 0.3);
+}
+
+/* === EFECTO VEGETA === */
+
+.rivales-eternos {
+    display: flex; /* 🔥 Activa el superpoder Flexbox */
+    justify-content: center; /* Centra el bloque entero en la pantalla */
+    align-items: center; /* Alinea los recuadros verticalmente (por si uno es más alto) */
+    gap: 40px; /* Crea una separación de 40px entre Goku y Vegeta */
+    padding: 60px 0; /* Espacio arriba y abajo de la sección */
+    flex-wrap: wrap; /* 📱 IMPORTANTE: Si estás en celular, los pondrá uno abajo del otro automáticamente para que no se corten */
+}
+
+.area-rivales {
+    display: flex;          /* Activa la alineación horizontal */
+    justify-content: center; /* Los centra en la pantalla */
+    align-items: center;     /* Los nivela a la misma altura */
+    gap: 30px;              /* Deja un espacio de 30px entre ellos */
+    margin: 50px 0;         /* Espacio arriba y abajo de la sección */
+    flex-wrap: wrap;        /* Si los ves en un celular, se pondrán uno abajo del otro para no romperse */
+}
+
+.vegeta-container {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Si querés ponerlos lado a lado, usá Flexbox en el contenedor padre */
+}
+
+/* El recuadro de Vegeta */
+.vegeta-wrapper {
+    position: relative;
+    width: 300px;
+    height: 350px;
+    background-color: #1a237e; /* Azul oscuro Majin */
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Imagen abajo */
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* --- EL AURA DE MAJIN (Hover) --- */
+.vegeta-wrapper:hover {
+    /* Aura morada y amarilla eléctrica */
+    box-shadow: 0 0 35px 15px rgba(103, 58, 183, 0.7), /* Morado Majin */
+                0 0 60px 25px rgba(255, 235, 59, 0.5);  /* Amarillo eléctrico SSJ2 */
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* La imagen de Vegeta */
+.vegeta-img {
+    max-width: 90%;
+    height: auto;
+    transition: 0.3s ease;
+}
+
+/* --- EL GLOBO DE TEXTO (Speech Bubble) --- */
+.vegeta-speech {
+    position: absolute;
+    top: -45px; /* Por encima */
+    left: -20px; /* Sobresale a la izquierda (contrario a Goku) */
+    background: #fff;
+    color: var(--dark);
+    padding: 15px 20px;
+    border-radius: 15px 15px 0 15px; /* Forma de globo inversa a Goku */
+    font-weight: 800;
+    font-size: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    opacity: 0; /* Oculto */
+    transform: scale(0.5) translateY(20px);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+    white-space: nowrap; /* Evita que el texto se corte */
+}
+
+/* El triangulito del globo de texto (Invertido) */
+.vegeta-speech::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 15px; /* Triángulo a la derecha del globo */
+    border-width: 10px 0 0 10px; /* Invertido */
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+}
+
+/* --- MOSTRAR EL GLOBO AL PASAR EL MOUSE --- */
+.vegeta-wrapper:hover .vegeta-speech {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* --- AJUSTES DE ESPACIADO PRO --- */
+
+/* 1. Le damos espacio al contenedor del botón y el texto */
+.cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea todo a la izquierda */
+    gap: 15px; /* Crea una separación exacta de 15px entre el botón y el texto */
+    margin-top: 30px; /* Separa todo el bloque del párrafo de arriba */
+}
+
+/* 2. Arreglamos el espacio DENTRO del botón (Padding) */
+.btn-primary {
+    /* padding: arriba/abajo izq/der */
+    padding: 20px 40px; /* Aumentamos un poco para que se vea más robusto */
+    border-radius: 50px;
+    display: inline-block; /* Importante para que el padding funcione bien */
+    /* ... (resto de tus estilos de color y font-weight que ya tienes) */
+}
+
+/* 3. Estilizamos el Trust Badge para que se vea elegante */
+.trust-badge {
+    font-size: 0.95rem; /* Un pelín más pequeño que el texto normal */
+    color: #555; /* Un gris intermedio elegante */
+    font-weight: 500;
+    margin-left: 10px; /* Un pequeño empujón a la derecha para alinearlo visualmente */
+}
+
